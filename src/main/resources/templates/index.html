@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<div th:replace="../fragments/header :: header"></div>
+	<body>
+		<form action="/greeting">
+			<input type="text" name="name" />
+			<button type="submit" class="btn btn-primary">Primary</button>
+		</form>
+		<script>
+			fetch(
+				'http://localhost:8080/api', 
+				{
+					method: 'POST', 
+					body: 'thisbody'
+				}
+			)
+			.then((response)=>{
+				console.log("fetched");
+				response.json()
+				.then(data=>{
+					console.log(data);
+				});
+			});
+		</script>
+	</body>
+</html>
